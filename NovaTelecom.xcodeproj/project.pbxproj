@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B3D165CA0AB4AB9A96988EA /* AnimatedWifiWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C21403B1BB4826BFFFC188 /* AnimatedWifiWaveView.swift */; };
+		A38E9DEB847746A3A6485FDD /* DataUsageGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687F2B7B5C5F4201AA644188 /* DataUsageGauge.swift */; };
+		F61FC170C0A84663994AF3BA /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2FDC2BDC2E46699826DBFA /* GlassCard.swift */; };
+		5CE134FA7EB14413878AF611 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B6CA8DDD54527BEB0A591 /* HapticFeedback.swift */; };
+		D33CACAA5C0F44F886567B7A /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4F072C9564E91B85A8406 /* SkeletonView.swift */; };
+		25453952D4BE4FB1A377EBD7 /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7314B434E07E476690ADE594 /* StatusBadge.swift */; };
+		B634E32D67984443B3636053 /* TelecomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5419582B224A4EBDEBBBB3 /* TelecomButton.swift */; };
+		38CDE482C1334FE7B814C175 /* TelecomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D0A31EFAF46F9B4D7AC82 /* TelecomColors.swift */; };
+		B35C4522C8664D9AA2B57C44 /* TelecomTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FAD7DADFFF4E2284855B0D /* TelecomTypography.swift */; };
+		5D189BCEF0004631A12FEE6C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A683BFFB074FE4AC14498F /* APIClient.swift */; };
+		65944BA49D3348D0A020A557 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F532DD7754E5790E91451 /* APIEndpoint.swift */; };
+		FFCBE93BE9F349D89FA3371C /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1136D041DE43D39EB040AB /* NetworkConfiguration.swift */; };
+		5AB961DDC27C46DDA3EBE768 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706493433F8490F8E8BDBC1 /* NetworkError.swift */; };
+		4AD6F56C738F4F7EA9F71F9C /* DemoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB06412808F44E289E87BD1 /* DemoDataStore.swift */; };
+		3205B66F93034015BC08DEC2 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91632D279C514CB1A8167D84 /* CurrencyFormatter.swift */; };
+		424D0C3959724A87ABEF1389 /* DataSizeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA71A488AE24A3CA102D150 /* DataSizeFormatter.swift */; };
+		DE0720BF2DCF4786A5797E27 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A905D1E5E48BB87FC3074 /* Logger.swift */; };
+		57E91224EF8B467E8428E7A7 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA96E594A92C4AAD96DFDEEB /* AuthManager.swift */; };
+		46AECB4320D14122A2392D16 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270C29FE467948BF92E50932 /* KeychainService.swift */; };
+		AE0EAEBE610A41CBA51012A5 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CE2FBA31541F587AB8E2B /* TokenStorage.swift */; };
+		DDE81F33AD2A4031BF998605 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0855F5CA72C483394EFFBEC /* UserSession.swift */; };
+		1C0239E470024373834FF327 /* TelecomAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A29F667182947A18F51D133 /* TelecomAnalytics.swift */; };
+		701087A39DD94F9A9AAD91A3 /* NovaTelecomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86B298CE4F4EB898C4822B /* NovaTelecomApp.swift */; };
+		A1F4E5A9B40D46B3B5355D17 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E51C8BE904C9796EB4700 /* HomeView.swift */; };
+		195A7CA6E6524456AC3FF0BF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3602B83F5BF04361B6AACDCD /* HomeViewModel.swift */; };
+		C7C4AAB047B84DA59B84D83F /* BroadbandStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48170FEF84FB408AAB2A89CE /* BroadbandStatusCard.swift */; };
+		152792999B5E450FA3064B5F /* DTHStreamingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48765FBBECFA4FE7A41D0B8A /* DTHStreamingCard.swift */; };
+		BE76D95851384E84A5379B99 /* MobileSimCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA98AEF6F6E48B6B90B2FAF /* MobileSimCard.swift */; };
+		8B59193DE1784B43A4F15981 /* QuickActionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309396B0DD54350B088340E /* QuickActionGrid.swift */; };
+		E1A2693DD5C945F78939FB04 /* RecommendedOffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C36F41ED14895A10C0B31 /* RecommendedOffersView.swift */; };
+		72107BC8DD944B2791827B99 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DDFB2E0A434F22A472332D /* ProductCardView.swift */; };
+		3629785117EB4C07A0B6F34A /* ProductCategoryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FDD961110946938A4CFEAD /* ProductCategoryFilter.swift */; };
+		90B988A1D0074BC3A6770CE9 /* ProductCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE61EB00CA4D15975CA716 /* ProductCompareView.swift */; };
+		4BF83E2DB79C4CE3A5DAE3EA /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638A05CEFD974F94AEEE66EC /* ProductsView.swift */; };
+		6A0E8A5BE0EC4834A04CC8EC /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB73AD93A486B953D65D0 /* ProductsViewModel.swift */; };
+		3DD9530440EC45B6A344DE6C /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEE83C30E274DA1B39D24E7 /* PlansView.swift */; };
+		8FFBA65D56304A8A8E7DB078 /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73252E3947C44177A32161A0 /* PlansViewModel.swift */; };
+		ED49D0F8A75441389BE21C8C /* AvailabilityCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FE591EBC8469F8996CCE6 /* AvailabilityCheckerView.swift */; };
+		6EC6A6F1B2884B1DA8E6B092 /* BroadbandPlansSubTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054DBE26890460B98934550 /* BroadbandPlansSubTab.swift */; };
+		528BE73D8AA04F84A8658794 /* DTHPlansSubTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACB71C1F2464809AE55CADD /* DTHPlansSubTab.swift */; };
+		0A1B91303E8C4A5187C3E4F4 /* MobilePlansSubTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43AF0551AD419DB8DEC998 /* MobilePlansSubTab.swift */; };
+		AA1B365270284E7E9E37EDE2 /* PlanComparisonModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D68EED417444CB6B42069F6 /* PlanComparisonModal.swift */; };
+		8E22F372B41A47B7A59C9180 /* StreamingPlansSubTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07373AC1A724D449600BC90 /* StreamingPlansSubTab.swift */; };
+		3227293E96834237958E0AB7 /* ProductDetails3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D55601CA1024E0AAD9EC731 /* ProductDetails3DView.swift */; };
+		A44F5FA450EC4414B3397401 /* RouterHotspotOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854CD8F84B764734B4E6F723 /* RouterHotspotOverlay.swift */; };
+		BF28F0D715FA4A2FBB05E9D8 /* RouterProceduralGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D718EE283434FA1BA93BB72 /* RouterProceduralGeometry.swift */; };
+		B861D0CB1DEF4B54B6F1E6E5 /* RouterSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F8FB3E0AA44DF9AFA310DB /* RouterSceneView.swift */; };
+		8125AFB075DE4BAFAFCEE89C /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7708371D6444D8A06D9EE0 /* AppSettingsView.swift */; };
+		986C4418A41D4E0D853D161E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83687FFC9F44CBC882305C8 /* AuthView.swift */; };
+		0500C15863E04804A07370FE /* BillHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435799D1C997490EB53B1B3A /* BillHistoryView.swift */; };
+		BF2622AC31BA4259B8FF5845 /* InvoiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781B77CB0C64E55A082FFFE /* InvoiceDetailView.swift */; };
+		4C7FBE2FAA54470EA1D411D2 /* LinkedAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63DEE2E655F47B5A1FA18E7 /* LinkedAccountsView.swift */; };
+		1175CD3C83E24825A6FD6D14 /* OrderHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BFEB37AFCF48F892A4952D /* OrderHistoryView.swift */; };
+		55CAB5025B8647C2BD2ADE80 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F0333E6FDD448E8412F1C4 /* ProfileView.swift */; };
+		0AD0307E6C0A4F67A25B5803 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AF89CA91A4770BD8FE747 /* ProfileViewModel.swift */; };
+		8E40B8AE082C4A5A854615EE /* CreateTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DABFAA4E384A54957A34B5 /* CreateTicketView.swift */; };
+		E5FE202293F3430593A59126 /* SupportChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE9C6AA3214448CBC40F0EA /* SupportChatView.swift */; };
+		342AE331779545BB987B9F06 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345AA4B873AB454690586A87 /* SupportView.swift */; };
+		4795AF944FDA470EA8A6BB9A /* SupportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B60FE66025844AEAF0A3FF2 /* SupportViewModel.swift */; };
+		ABE58D14CC4D443C9795F46D /* TroubleshootingWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC13251EF2D43AD94853A6F /* TroubleshootingWizardView.swift */; };
+		86548220E40A4C25B93E209B /* RechargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1F0651D6714C60A34D6D3C /* RechargeView.swift */; };
+		61FAC04DE5174F50A7A7CE9D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF18AEC03C49E4936D5334 /* CartView.swift */; };
+		B98214DC7E174318B95E81BC /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD12597C60E34CD2A1886E70 /* CartViewModel.swift */; };
+		6B531173A3264BE0B3D96903 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169020A0189247EC8ED0D6FF /* CheckoutView.swift */; };
+		65FFC5BE3C574E6CA2EBA122 /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BAF54DB67485DA212F48E /* OrderConfirmationView.swift */; };
+		1EBEB4D23C064927BD6E8390 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E498F252334C5BB6B74826 /* MainTabView.swift */; };
+		CE42851F6BD443AEB7599034 /* SpeedUpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D42FD071DC4F87BD868058 /* SpeedUpgradeView.swift */; };
+		B2E2BA3F1E54419F92C191E8 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2901F3C3FBB4D86B1F53183 /* Cart.swift */; };
+		E83636E3DBA245D3BD29607C /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB276A103514F7BBD3708A7 /* Invoice.swift */; };
+		AADAC471365044B695A245BD /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDB38981AC44E1AE661A96 /* Order.swift */; };
+		3661D3952A2947FAB4F346A0 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A793D3672BA41F5989626F8 /* Plan.swift */; };
+		185645D67BB24F1A89CF18EF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEAE27729E8473FA1E8EF88 /* Product.swift */; };
+		19517F30A3ED46EC89B63271 /* ServiceAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF059E2184944452A2F652C6 /* ServiceAvailability.swift */; };
+		9D5069E18984422EA9B30068 /* SupportTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12B5613EFF4438B352D13A /* SupportTicket.swift */; };
+		180D59F2BAE54D6ABBC8292C /* TelecomAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DAE863A5394C11A9A57233 /* TelecomAccount.swift */; };
+		47666A379DBD47109CDFFD8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C08F4D1B0541A29655B74A /* User.swift */; };
+		878AF6118697464482EE2D3A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C7FFC7F0C846A88CC1B0E0 /* CustomTabBar.swift */; };
+		7AB61C9FD8A14D428BCDE801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AA848ADE424F73AA3B7A4D /* Assets.xcassets */; };
+		EE9277704FEE40A4AD49C276 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF61EFC0F6C43F685DFA88D /* APIClientTests.swift */; };
+		974FF1371DCF4B24B63B56D5 /* CartPricingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423621517D44A1DA2DF588D /* CartPricingTests.swift */; };
+		3164859F72BC452D888C1C14 /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F790614E146D7BE3B4667 /* ValidationTests.swift */; };
+		A9633F01456044528AAF61EA /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C506036CC01E4757B16ECB72 /* ViewModelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70317431192E4419A960AFAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AFFF0BD88141D9BE7291E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73F5D55B1AEC406B89726DC4;
+			remoteInfo = NovaTelecom;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		91C21403B1BB4826BFFFC188 /* AnimatedWifiWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/AnimatedWifiWaveView.swift"; sourceTree = "<group>"; };
+		687F2B7B5C5F4201AA644188 /* DataUsageGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/DataUsageGauge.swift"; sourceTree = "<group>"; };
+		CB2FDC2BDC2E46699826DBFA /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/GlassCard.swift"; sourceTree = "<group>"; };
+		6D7B6CA8DDD54527BEB0A591 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/HapticFeedback.swift"; sourceTree = "<group>"; };
+		64C4F072C9564E91B85A8406 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/SkeletonView.swift"; sourceTree = "<group>"; };
+		7314B434E07E476690ADE594 /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/StatusBadge.swift"; sourceTree = "<group>"; };
+		3C5419582B224A4EBDEBBBB3 /* TelecomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/TelecomButton.swift"; sourceTree = "<group>"; };
+		551D0A31EFAF46F9B4D7AC82 /* TelecomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/TelecomColors.swift"; sourceTree = "<group>"; };
+		98FAD7DADFFF4E2284855B0D /* TelecomTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/DesignSystem/TelecomTypography.swift"; sourceTree = "<group>"; };
+		87A683BFFB074FE4AC14498F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Networking/APIClient.swift"; sourceTree = "<group>"; };
+		842F532DD7754E5790E91451 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Networking/APIEndpoint.swift"; sourceTree = "<group>"; };
+		DC1136D041DE43D39EB040AB /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Networking/NetworkConfiguration.swift"; sourceTree = "<group>"; };
+		0706493433F8490F8E8BDBC1 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Networking/NetworkError.swift"; sourceTree = "<group>"; };
+		EBB06412808F44E289E87BD1 /* DemoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Storage/DemoDataStore.swift"; sourceTree = "<group>"; };
+		91632D279C514CB1A8167D84 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Utilities/CurrencyFormatter.swift"; sourceTree = "<group>"; };
+		8DA71A488AE24A3CA102D150 /* DataSizeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Utilities/DataSizeFormatter.swift"; sourceTree = "<group>"; };
+		954A905D1E5E48BB87FC3074 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Utilities/Logger.swift"; sourceTree = "<group>"; };
+		EA96E594A92C4AAD96DFDEEB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Authentication/AuthManager.swift"; sourceTree = "<group>"; };
+		270C29FE467948BF92E50932 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Authentication/KeychainService.swift"; sourceTree = "<group>"; };
+		BD0CE2FBA31541F587AB8E2B /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Authentication/TokenStorage.swift"; sourceTree = "<group>"; };
+		E0855F5CA72C483394EFFBEC /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Authentication/UserSession.swift"; sourceTree = "<group>"; };
+		3A29F667182947A18F51D133 /* TelecomAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core/Analytics/TelecomAnalytics.swift"; sourceTree = "<group>"; };
+		7D86B298CE4F4EB898C4822B /* NovaTelecomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/NovaTelecomApp.swift"; sourceTree = "<group>"; };
+		7A9E51C8BE904C9796EB4700 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Home/HomeView.swift"; sourceTree = "<group>"; };
+		3602B83F5BF04361B6AACDCD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Home/HomeViewModel.swift"; sourceTree = "<group>"; };
+		48170FEF84FB408AAB2A89CE /* BroadbandStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Home/Components/BroadbandStatusCard.swift"; sourceTree = "<group>"; };
+		48765FBBECFA4FE7A41D0B8A /* DTHStreamingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Home/Components/DTHStreamingCard.swift"; sourceTree = "<group>"; };
+		0BA98AEF6F6E48B6B90B2FAF /* MobileSimCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Home/Components/MobileSimCard.swift"; sourceTree = "<group>"; };
+		3309396B0DD54350B088340E /* QuickActionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Home/Components/QuickActionGrid.swift"; sourceTree = "<group>"; };
+		AA2C36F41ED14895A10C0B31 /* RecommendedOffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Home/Components/RecommendedOffersView.swift"; sourceTree = "<group>"; };
+		45DDFB2E0A434F22A472332D /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Products/ProductCardView.swift"; sourceTree = "<group>"; };
+		81FDD961110946938A4CFEAD /* ProductCategoryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Products/ProductCategoryFilter.swift"; sourceTree = "<group>"; };
+		AFCE61EB00CA4D15975CA716 /* ProductCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Products/ProductCompareView.swift"; sourceTree = "<group>"; };
+		638A05CEFD974F94AEEE66EC /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Products/ProductsView.swift"; sourceTree = "<group>"; };
+		01EDB73AD93A486B953D65D0 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Products/ProductsViewModel.swift"; sourceTree = "<group>"; };
+		8EEE83C30E274DA1B39D24E7 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/PlansView.swift"; sourceTree = "<group>"; };
+		73252E3947C44177A32161A0 /* PlansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/PlansViewModel.swift"; sourceTree = "<group>"; };
+		456FE591EBC8469F8996CCE6 /* AvailabilityCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/Components/AvailabilityCheckerView.swift"; sourceTree = "<group>"; };
+		F054DBE26890460B98934550 /* BroadbandPlansSubTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/Components/BroadbandPlansSubTab.swift"; sourceTree = "<group>"; };
+		6ACB71C1F2464809AE55CADD /* DTHPlansSubTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/Components/DTHPlansSubTab.swift"; sourceTree = "<group>"; };
+		1D43AF0551AD419DB8DEC998 /* MobilePlansSubTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/Components/MobilePlansSubTab.swift"; sourceTree = "<group>"; };
+		7D68EED417444CB6B42069F6 /* PlanComparisonModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/Components/PlanComparisonModal.swift"; sourceTree = "<group>"; };
+		E07373AC1A724D449600BC90 /* StreamingPlansSubTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Plans/Components/StreamingPlansSubTab.swift"; sourceTree = "<group>"; };
+		6D55601CA1024E0AAD9EC731 /* ProductDetails3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/ProductDetails3D/ProductDetails3DView.swift"; sourceTree = "<group>"; };
+		854CD8F84B764734B4E6F723 /* RouterHotspotOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/ProductDetails3D/Scene3D/RouterHotspotOverlay.swift"; sourceTree = "<group>"; };
+		6D718EE283434FA1BA93BB72 /* RouterProceduralGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/ProductDetails3D/Scene3D/RouterProceduralGeometry.swift"; sourceTree = "<group>"; };
+		C4F8FB3E0AA44DF9AFA310DB /* RouterSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/ProductDetails3D/Scene3D/RouterSceneView.swift"; sourceTree = "<group>"; };
+		6D7708371D6444D8A06D9EE0 /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/AppSettingsView.swift"; sourceTree = "<group>"; };
+		F83687FFC9F44CBC882305C8 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/AuthView.swift"; sourceTree = "<group>"; };
+		435799D1C997490EB53B1B3A /* BillHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/BillHistoryView.swift"; sourceTree = "<group>"; };
+		1781B77CB0C64E55A082FFFE /* InvoiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/InvoiceDetailView.swift"; sourceTree = "<group>"; };
+		F63DEE2E655F47B5A1FA18E7 /* LinkedAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/LinkedAccountsView.swift"; sourceTree = "<group>"; };
+		D6BFEB37AFCF48F892A4952D /* OrderHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/OrderHistoryView.swift"; sourceTree = "<group>"; };
+		92F0333E6FDD448E8412F1C4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/ProfileView.swift"; sourceTree = "<group>"; };
+		450AF89CA91A4770BD8FE747 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Profile/ProfileViewModel.swift"; sourceTree = "<group>"; };
+		16DABFAA4E384A54957A34B5 /* CreateTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Support/CreateTicketView.swift"; sourceTree = "<group>"; };
+		DDE9C6AA3214448CBC40F0EA /* SupportChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Support/SupportChatView.swift"; sourceTree = "<group>"; };
+		345AA4B873AB454690586A87 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Support/SupportView.swift"; sourceTree = "<group>"; };
+		6B60FE66025844AEAF0A3FF2 /* SupportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Support/SupportViewModel.swift"; sourceTree = "<group>"; };
+		9CC13251EF2D43AD94853A6F /* TroubleshootingWizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Support/TroubleshootingWizardView.swift"; sourceTree = "<group>"; };
+		EC1F0651D6714C60A34D6D3C /* RechargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Recharge/RechargeView.swift"; sourceTree = "<group>"; };
+		BBBF18AEC03C49E4936D5334 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Cart/CartView.swift"; sourceTree = "<group>"; };
+		AD12597C60E34CD2A1886E70 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Cart/CartViewModel.swift"; sourceTree = "<group>"; };
+		169020A0189247EC8ED0D6FF /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Cart/CheckoutView.swift"; sourceTree = "<group>"; };
+		3E8BAF54DB67485DA212F48E /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Cart/OrderConfirmationView.swift"; sourceTree = "<group>"; };
+		B6E498F252334C5BB6B74826 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/MainContainer/MainTabView.swift"; sourceTree = "<group>"; };
+		95D42FD071DC4F87BD868058 /* SpeedUpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features/Broadband/SpeedUpgradeView.swift"; sourceTree = "<group>"; };
+		A2901F3C3FBB4D86B1F53183 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/Cart.swift"; sourceTree = "<group>"; };
+		9DB276A103514F7BBD3708A7 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/Invoice.swift"; sourceTree = "<group>"; };
+		64EDB38981AC44E1AE661A96 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/Order.swift"; sourceTree = "<group>"; };
+		8A793D3672BA41F5989626F8 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/Plan.swift"; sourceTree = "<group>"; };
+		4BEAE27729E8473FA1E8EF88 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/Product.swift"; sourceTree = "<group>"; };
+		DF059E2184944452A2F652C6 /* ServiceAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/ServiceAvailability.swift"; sourceTree = "<group>"; };
+		9C12B5613EFF4438B352D13A /* SupportTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/SupportTicket.swift"; sourceTree = "<group>"; };
+		12DAE863A5394C11A9A57233 /* TelecomAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/TelecomAccount.swift"; sourceTree = "<group>"; };
+		D2C08F4D1B0541A29655B74A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models/User.swift"; sourceTree = "<group>"; };
+		57C7FFC7F0C846A88CC1B0E0 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Components/CustomTabBar.swift"; sourceTree = "<group>"; };
+		50AA848ADE424F73AA3B7A4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Resources/Assets.xcassets"; sourceTree = "<group>"; };
+		88885ADC183146018037142B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App/Info.plist"; sourceTree = "<group>"; };
+		BFF61EFC0F6C43F685DFA88D /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClientTests.swift"; sourceTree = "<group>"; };
+		0423621517D44A1DA2DF588D /* CartPricingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartPricingTests.swift"; sourceTree = "<group>"; };
+		420F790614E146D7BE3B4667 /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ValidationTests.swift"; sourceTree = "<group>"; };
+		C506036CC01E4757B16ECB72 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModelTests.swift"; sourceTree = "<group>"; };
+		E5EFCFB2CA5640AFAB452ECD /* NovaTelecom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovaTelecom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6EE18E4AF3D4F8B811C33D7 /* NovaTelecomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaTelecomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		274F6AC90E0A4ABA91A504E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89C5FF8E4B7D4BC3BF2BC659 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F9B5F4BD16B4119AE7650ED = {
+			isa = PBXGroup;
+			children = (
+				712BAB66E0D0451BA5F0C2EE /* NovaTelecom */,
+				B1C084CE8B86492B81B9753C /* NovaTelecomTests */,
+				29068E9872F64C70A784AF7F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		712BAB66E0D0451BA5F0C2EE /* NovaTelecom */ = {
+			isa = PBXGroup;
+			children = (
+				91C21403B1BB4826BFFFC188,
+				687F2B7B5C5F4201AA644188,
+				CB2FDC2BDC2E46699826DBFA,
+				6D7B6CA8DDD54527BEB0A591,
+				64C4F072C9564E91B85A8406,
+				7314B434E07E476690ADE594,
+				3C5419582B224A4EBDEBBBB3,
+				551D0A31EFAF46F9B4D7AC82,
+				98FAD7DADFFF4E2284855B0D,
+				87A683BFFB074FE4AC14498F,
+				842F532DD7754E5790E91451,
+				DC1136D041DE43D39EB040AB,
+				0706493433F8490F8E8BDBC1,
+				EBB06412808F44E289E87BD1,
+				91632D279C514CB1A8167D84,
+				8DA71A488AE24A3CA102D150,
+				954A905D1E5E48BB87FC3074,
+				EA96E594A92C4AAD96DFDEEB,
+				270C29FE467948BF92E50932,
+				BD0CE2FBA31541F587AB8E2B,
+				E0855F5CA72C483394EFFBEC,
+				3A29F667182947A18F51D133,
+				7D86B298CE4F4EB898C4822B,
+				7A9E51C8BE904C9796EB4700,
+				3602B83F5BF04361B6AACDCD,
+				48170FEF84FB408AAB2A89CE,
+				48765FBBECFA4FE7A41D0B8A,
+				0BA98AEF6F6E48B6B90B2FAF,
+				3309396B0DD54350B088340E,
+				AA2C36F41ED14895A10C0B31,
+				45DDFB2E0A434F22A472332D,
+				81FDD961110946938A4CFEAD,
+				AFCE61EB00CA4D15975CA716,
+				638A05CEFD974F94AEEE66EC,
+				01EDB73AD93A486B953D65D0,
+				8EEE83C30E274DA1B39D24E7,
+				73252E3947C44177A32161A0,
+				456FE591EBC8469F8996CCE6,
+				F054DBE26890460B98934550,
+				6ACB71C1F2464809AE55CADD,
+				1D43AF0551AD419DB8DEC998,
+				7D68EED417444CB6B42069F6,
+				E07373AC1A724D449600BC90,
+				6D55601CA1024E0AAD9EC731,
+				854CD8F84B764734B4E6F723,
+				6D718EE283434FA1BA93BB72,
+				C4F8FB3E0AA44DF9AFA310DB,
+				6D7708371D6444D8A06D9EE0,
+				F83687FFC9F44CBC882305C8,
+				435799D1C997490EB53B1B3A,
+				1781B77CB0C64E55A082FFFE,
+				F63DEE2E655F47B5A1FA18E7,
+				D6BFEB37AFCF48F892A4952D,
+				92F0333E6FDD448E8412F1C4,
+				450AF89CA91A4770BD8FE747,
+				16DABFAA4E384A54957A34B5,
+				DDE9C6AA3214448CBC40F0EA,
+				345AA4B873AB454690586A87,
+				6B60FE66025844AEAF0A3FF2,
+				9CC13251EF2D43AD94853A6F,
+				EC1F0651D6714C60A34D6D3C,
+				BBBF18AEC03C49E4936D5334,
+				AD12597C60E34CD2A1886E70,
+				169020A0189247EC8ED0D6FF,
+				3E8BAF54DB67485DA212F48E,
+				B6E498F252334C5BB6B74826,
+				95D42FD071DC4F87BD868058,
+				A2901F3C3FBB4D86B1F53183,
+				9DB276A103514F7BBD3708A7,
+				64EDB38981AC44E1AE661A96,
+				8A793D3672BA41F5989626F8,
+				4BEAE27729E8473FA1E8EF88,
+				DF059E2184944452A2F652C6,
+				9C12B5613EFF4438B352D13A,
+				12DAE863A5394C11A9A57233,
+				D2C08F4D1B0541A29655B74A,
+				57C7FFC7F0C846A88CC1B0E0,
+				50AA848ADE424F73AA3B7A4D,
+				88885ADC183146018037142B,
+			);
+			path = NovaTelecom;
+			sourceTree = "<group>";
+		};
+		B1C084CE8B86492B81B9753C /* NovaTelecomTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFF61EFC0F6C43F685DFA88D,
+				0423621517D44A1DA2DF588D,
+				420F790614E146D7BE3B4667,
+				C506036CC01E4757B16ECB72,
+			);
+			path = NovaTelecomTests;
+			sourceTree = "<group>";
+		};
+		29068E9872F64C70A784AF7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5EFCFB2CA5640AFAB452ECD /* NovaTelecom.app */,
+				E6EE18E4AF3D4F8B811C33D7 /* NovaTelecomTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		73F5D55B1AEC406B89726DC4 /* NovaTelecom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EC06B6651DF4F6291EF2494 /* Build configuration list for PBXNativeTarget "NovaTelecom" */;
+			buildPhases = (
+				F85248FEC9254183A74FEB9B /* Sources */,
+				274F6AC90E0A4ABA91A504E8 /* Frameworks */,
+				425C0AF72DAC4369A066E281 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NovaTelecom;
+			productName = NovaTelecom;
+			productReference = E5EFCFB2CA5640AFAB452ECD /* NovaTelecom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD99F09E117B461194F25125 /* NovaTelecomTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 037AE8ED58244E4F886F12BE /* Build configuration list for PBXNativeTarget "NovaTelecomTests" */;
+			buildPhases = (
+				D0688CF738D642C3BD00EE12 /* Sources */,
+				89C5FF8E4B7D4BC3BF2BC659 /* Frameworks */,
+				300A16FA4168420E9C32C24F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FA4FA8DA3AE41319104F0EB /* PBXTargetDependency */,
+			);
+			name = NovaTelecomTests;
+			productName = NovaTelecomTests;
+			productReference = E6EE18E4AF3D4F8B811C33D7 /* NovaTelecomTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5AFFF0BD88141D9BE7291E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					73F5D55B1AEC406B89726DC4 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					DD99F09E117B461194F25125 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 73F5D55B1AEC406B89726DC4;
+					};
+				};
+			};
+			buildConfigurationList = E3CD8305C8FD4349BE066B67 /* Build configuration list for PBXProject "NovaTelecom" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5F9B5F4BD16B4119AE7650ED;
+			productRefGroup = 29068E9872F64C70A784AF7F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73F5D55B1AEC406B89726DC4 /* NovaTelecom */,
+				DD99F09E117B461194F25125 /* NovaTelecomTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		425C0AF72DAC4369A066E281 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AB61C9FD8A14D428BCDE801 /* in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300A16FA4168420E9C32C24F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F85248FEC9254183A74FEB9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B3D165CA0AB4AB9A96988EA /* in Sources */,
+				A38E9DEB847746A3A6485FDD /* in Sources */,
+				F61FC170C0A84663994AF3BA /* in Sources */,
+				5CE134FA7EB14413878AF611 /* in Sources */,
+				D33CACAA5C0F44F886567B7A /* in Sources */,
+				25453952D4BE4FB1A377EBD7 /* in Sources */,
+				B634E32D67984443B3636053 /* in Sources */,
+				38CDE482C1334FE7B814C175 /* in Sources */,
+				B35C4522C8664D9AA2B57C44 /* in Sources */,
+				5D189BCEF0004631A12FEE6C /* in Sources */,
+				65944BA49D3348D0A020A557 /* in Sources */,
+				FFCBE93BE9F349D89FA3371C /* in Sources */,
+				5AB961DDC27C46DDA3EBE768 /* in Sources */,
+				4AD6F56C738F4F7EA9F71F9C /* in Sources */,
+				3205B66F93034015BC08DEC2 /* in Sources */,
+				424D0C3959724A87ABEF1389 /* in Sources */,
+				DE0720BF2DCF4786A5797E27 /* in Sources */,
+				57E91224EF8B467E8428E7A7 /* in Sources */,
+				46AECB4320D14122A2392D16 /* in Sources */,
+				AE0EAEBE610A41CBA51012A5 /* in Sources */,
+				DDE81F33AD2A4031BF998605 /* in Sources */,
+				1C0239E470024373834FF327 /* in Sources */,
+				701087A39DD94F9A9AAD91A3 /* in Sources */,
+				A1F4E5A9B40D46B3B5355D17 /* in Sources */,
+				195A7CA6E6524456AC3FF0BF /* in Sources */,
+				C7C4AAB047B84DA59B84D83F /* in Sources */,
+				152792999B5E450FA3064B5F /* in Sources */,
+				BE76D95851384E84A5379B99 /* in Sources */,
+				8B59193DE1784B43A4F15981 /* in Sources */,
+				E1A2693DD5C945F78939FB04 /* in Sources */,
+				72107BC8DD944B2791827B99 /* in Sources */,
+				3629785117EB4C07A0B6F34A /* in Sources */,
+				90B988A1D0074BC3A6770CE9 /* in Sources */,
+				4BF83E2DB79C4CE3A5DAE3EA /* in Sources */,
+				6A0E8A5BE0EC4834A04CC8EC /* in Sources */,
+				3DD9530440EC45B6A344DE6C /* in Sources */,
+				8FFBA65D56304A8A8E7DB078 /* in Sources */,
+				ED49D0F8A75441389BE21C8C /* in Sources */,
+				6EC6A6F1B2884B1DA8E6B092 /* in Sources */,
+				528BE73D8AA04F84A8658794 /* in Sources */,
+				0A1B91303E8C4A5187C3E4F4 /* in Sources */,
+				AA1B365270284E7E9E37EDE2 /* in Sources */,
+				8E22F372B41A47B7A59C9180 /* in Sources */,
+				3227293E96834237958E0AB7 /* in Sources */,
+				A44F5FA450EC4414B3397401 /* in Sources */,
+				BF28F0D715FA4A2FBB05E9D8 /* in Sources */,
+				B861D0CB1DEF4B54B6F1E6E5 /* in Sources */,
+				8125AFB075DE4BAFAFCEE89C /* in Sources */,
+				986C4418A41D4E0D853D161E /* in Sources */,
+				0500C15863E04804A07370FE /* in Sources */,
+				BF2622AC31BA4259B8FF5845 /* in Sources */,
+				4C7FBE2FAA54470EA1D411D2 /* in Sources */,
+				1175CD3C83E24825A6FD6D14 /* in Sources */,
+				55CAB5025B8647C2BD2ADE80 /* in Sources */,
+				0AD0307E6C0A4F67A25B5803 /* in Sources */,
+				8E40B8AE082C4A5A854615EE /* in Sources */,
+				E5FE202293F3430593A59126 /* in Sources */,
+				342AE331779545BB987B9F06 /* in Sources */,
+				4795AF944FDA470EA8A6BB9A /* in Sources */,
+				ABE58D14CC4D443C9795F46D /* in Sources */,
+				86548220E40A4C25B93E209B /* in Sources */,
+				61FAC04DE5174F50A7A7CE9D /* in Sources */,
+				B98214DC7E174318B95E81BC /* in Sources */,
+				6B531173A3264BE0B3D96903 /* in Sources */,
+				65FFC5BE3C574E6CA2EBA122 /* in Sources */,
+				1EBEB4D23C064927BD6E8390 /* in Sources */,
+				CE42851F6BD443AEB7599034 /* in Sources */,
+				B2E2BA3F1E54419F92C191E8 /* in Sources */,
+				E83636E3DBA245D3BD29607C /* in Sources */,
+				AADAC471365044B695A245BD /* in Sources */,
+				3661D3952A2947FAB4F346A0 /* in Sources */,
+				185645D67BB24F1A89CF18EF /* in Sources */,
+				19517F30A3ED46EC89B63271 /* in Sources */,
+				9D5069E18984422EA9B30068 /* in Sources */,
+				180D59F2BAE54D6ABBC8292C /* in Sources */,
+				47666A379DBD47109CDFFD8B /* in Sources */,
+				878AF6118697464482EE2D3A /* in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0688CF738D642C3BD00EE12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE9277704FEE40A4AD49C276 /* in Sources */,
+				974FF1371DCF4B24B63B56D5 /* in Sources */,
+				3164859F72BC452D888C1C14 /* in Sources */,
+				A9633F01456044528AAF61EA /* in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0FA4FA8DA3AE41319104F0EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73F5D55B1AEC406B89726DC4 /* NovaTelecom */;
+			targetProxy = 70317431192E4419A960AFAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DC233F88408347D8B7E5345C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDEFINED_VARIABLES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CC2907BEF82544E19CAE03FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDEFINED_VARIABLES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C1F1B6EF15D4099A76F3F2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NovaTelecom/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nova Telecom";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novatelecom.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9452D8EF95A143D4BD32B012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NovaTelecom/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nova Telecom";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novatelecom.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		775F7A1172054A93BCE38416 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novatelecom.appTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NovaTelecom.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NovaTelecom";
+			};
+			name = Debug;
+		};
+		C02D46C86BE747C0B91C169E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novatelecom.appTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NovaTelecom.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NovaTelecom";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3CD8305C8FD4349BE066B67 /* Build configuration list for PBXProject "NovaTelecom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC233F88408347D8B7E5345C /* Debug */,
+				CC2907BEF82544E19CAE03FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EC06B6651DF4F6291EF2494 /* Build configuration list for PBXNativeTarget "NovaTelecom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C1F1B6EF15D4099A76F3F2E /* Debug */,
+				9452D8EF95A143D4BD32B012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		037AE8ED58244E4F886F12BE /* Build configuration list for PBXNativeTarget "NovaTelecomTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				775F7A1172054A93BCE38416 /* Debug */,
+				C02D46C86BE747C0B91C169E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = E5AFFF0BD88141D9BE7291E7 /* Project object */;
+}

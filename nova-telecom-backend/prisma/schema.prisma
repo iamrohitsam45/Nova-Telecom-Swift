@@ -1,0 +1,680 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+  SUPPORT_AGENT
+}
+
+enum ProductCategory {
+  WIFI_ROUTERS
+  FIBER_ONT
+  MESH_WIFI
+  PORTABLE_HOTSPOT
+  SIM_ESIM
+  FIBER_EQUIPMENT
+  DTH_STB
+  ACCESSORIES
+}
+
+enum PlanType {
+  MOBILE_PREPAID
+  MOBILE_POSTPAID
+  BROADBAND_FIBER
+  DTH_TV
+  STREAMING_OTT
+}
+
+enum OrderStatus {
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  REFUNDED
+}
+
+enum InvoiceStatus {
+  PAID
+  PENDING
+  OVERDUE
+}
+
+enum ConnectionState {
+  ONLINE
+  CONNECTING
+  WEAK_SIGNAL
+  OFFLINE
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+// 1. User
+model User {
+  id            String         @id @default(uuid())
+  email         String         @unique
+  passwordHash  String
+  fullName      String
+  phoneNumber   String
+  role          UserRole       @default(CUSTOMER)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  profile       UserProfile?
+  addresses     Address[]
+  authSessions  AuthSession[]
+  cart          Cart?
+  wishlist      WishlistItem[]
+  orders        Order[]
+  telecomAccounts TelecomAccount[]
+  supportTickets SupportTicket[]
+  notifications Notification[]
+  auditLogs     AuditLog[]
+
+  @@index([email])
+  @@index([phoneNumber])
+}
+
+// 2. UserProfile
+model UserProfile {
+  id             String    @id @default(uuid())
+  userId         String    @unique
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  avatarUrl      String?
+  customerSince  DateTime  @default(now())
+  preferredLang  String    @default("en")
+  preferredCurr  String    @default("USD")
+  biometricLogin Boolean   @default(true)
+  marketingConsent Boolean @default(false)
+}
+
+// 3. Address
+model Address {
+  id           String    @id @default(uuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label        String    @default("Home")
+  street       String
+  apartment    String?
+  city         String
+  state        String
+  postalCode   String
+  country      String    @default("US")
+  isDefault    Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  orders       Order[]
+  broadbands   BroadbandConnection[]
+
+  @@index([userId])
+}
+
+// 4. AuthSession
+model AuthSession {
+  id           String    @id @default(uuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshToken String    @unique
+  userAgent    String?
+  ipAddress    String?
+  expiresAt    DateTime
+  createdAt    DateTime  @default(now())
+  revokedAt    DateTime?
+
+  @@index([userId])
+  @@index([refreshToken])
+}
+
+// 5. Product
+model Product {
+  id                 String               @id @default(uuid())
+  name               String
+  brand              String
+  category           ProductCategory
+  headline           String
+  description        String
+  priceMinorUnits    Int
+  discountMinorUnits Int?
+  currency           String               @default("USD")
+  inStock            Boolean              @default(true)
+  model3DAsset       String?
+  isFeatured         Boolean              @default(false)
+  wifiGeneration     String?
+  maxSpeedMbps       Int?
+  portsJson          String?              // Array serialized to JSON
+  bandsJson          String?              // Array serialized to JSON
+  warrantyMonths     Int                  @default(24)
+  deliveryDays       Int                  @default(2)
+  rating             Float                @default(4.8)
+  reviewCount        Int                  @default(0)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+
+  images             ProductImage[]
+  specifications     ProductSpecification[]
+  inventory          Inventory?
+  cartItems          CartItem[]
+  wishlistItems      WishlistItem[]
+  orderItems         OrderItem[]
+  modemDevices       ModemDevice[]
+
+  @@index([category])
+  @@index([isFeatured])
+}
+
+// 6. ProductImage
+model ProductImage {
+  id         String   @id @default(uuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url        String
+  isPrimary  Boolean  @default(false)
+  sortOrder  Int      @default(0)
+
+  @@index([productId])
+}
+
+// 7. ProductSpecification
+model ProductSpecification {
+  id         String   @id @default(uuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  specKey    String
+  specValue  String
+
+  @@index([productId])
+}
+
+// 8. Inventory
+model Inventory {
+  id         String   @id @default(uuid())
+  productId  String   @unique
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity   Int      @default(100)
+  sku        String   @unique
+  location   String   @default("CENTRAL-WH-01")
+  updatedAt  DateTime @updatedAt
+}
+
+// 9. Cart
+model Cart {
+  id                      String     @id @default(uuid())
+  userId                  String     @unique
+  user                    User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  promoCode               String?
+  promoDiscountMinorUnits Int        @default(0)
+  updatedAt               DateTime   @updatedAt
+
+  items                   CartItem[]
+}
+
+// 10. CartItem
+model CartItem {
+  id            String   @id @default(uuid())
+  cartId        String
+  cart          Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  productId     String
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity      Int      @default(1)
+  selectedColor String?  @default("Cyber Black")
+  createdAt     DateTime @default(now())
+
+  @@index([cartId])
+  @@index([productId])
+}
+
+// 11. WishlistItem
+model WishlistItem {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+// 12. Order
+model Order {
+  id                     String       @id @default(uuid())
+  orderNumber            String       @unique
+  userId                 String
+  user                   User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status                 OrderStatus  @default(PROCESSING)
+  shippingAddressId      String
+  shippingAddress        Address      @relation(fields: [shippingAddressId], references: [id])
+  totalAmountMinorUnits  Int
+  currency               String       @default("USD")
+  createdAt              DateTime     @default(now())
+  updatedAt              DateTime     @updatedAt
+
+  items                  OrderItem[]
+  shipment               Shipment?
+  payments               Payment[]
+
+  @@index([userId])
+  @@index([orderNumber])
+}
+
+// 13. OrderItem
+model OrderItem {
+  id                   String   @id @default(uuid())
+  orderId              String
+  order                Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId            String
+  product              Product  @relation(fields: [productId], references: [id])
+  quantity             Int      @default(1)
+  unitPriceMinorUnits  Int
+  createdAt            DateTime @default(now())
+
+  @@index([orderId])
+}
+
+// 14. Shipment
+model Shipment {
+  id                    String    @id @default(uuid())
+  orderId               String    @unique
+  order                 Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  carrier               String    @default("Nova Express Logistics")
+  trackingNumber        String    @unique
+  status                String    @default("LABEL_CREATED")
+  estimatedDeliveryDate DateTime?
+  shippedAt             DateTime?
+  deliveredAt           DateTime?
+  updatedAt             DateTime  @updatedAt
+}
+
+// 15. Payment
+model Payment {
+  id                   String        @id @default(uuid())
+  orderId              String?
+  order                Order?        @relation(fields: [orderId], references: [id])
+  invoiceId            String?
+  invoice              Invoice?      @relation(fields: [invoiceId], references: [id])
+  idempotencyKey       String        @unique
+  provider             String        @default("MOCK_PAYMENT_GATEWAY")
+  providerTransactionId String?      @unique
+  amountMinorUnits     Int
+  currency             String        @default("USD")
+  status               PaymentStatus @default(PENDING)
+  paymentMethod        String        @default("Apple Pay")
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  refunds              Refund[]
+
+  @@index([idempotencyKey])
+}
+
+// 16. Refund
+model Refund {
+  id                   String   @id @default(uuid())
+  paymentId            String
+  payment              Payment  @relation(fields: [paymentId], references: [id])
+  reason               String
+  amountMinorUnits     Int
+  currency             String   @default("USD")
+  status               String   @default("SUCCESS")
+  createdAt            DateTime @default(now())
+
+  @@index([paymentId])
+}
+
+// 17. Invoice
+model Invoice {
+  id                   String        @id @default(uuid())
+  invoiceNumber        String        @unique
+  telecomAccountId     String
+  telecomAccount       TelecomAccount @relation(fields: [telecomAccountId], references: [id], onDelete: Cascade)
+  billingPeriodStart   DateTime
+  billingPeriodEnd     DateTime
+  dueDate              DateTime
+  totalAmountMinorUnits Int
+  currency             String        @default("USD")
+  status               InvoiceStatus @default(PAID)
+  paymentMethod        String?
+  pdfUrl               String?
+  createdAt            DateTime      @default(now())
+
+  payments             Payment[]
+
+  @@index([telecomAccountId])
+  @@index([invoiceNumber])
+}
+
+// 18. TelecomAccount
+model TelecomAccount {
+  id              String                @id @default(uuid())
+  accountNumber   String                @unique
+  userId          String
+  user            User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status          String                @default("ACTIVE")
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+
+  simCards        SIMCard[]
+  broadbands      BroadbandConnection[]
+  dthAccounts     DTHAccount[]
+  subscriptions   Subscription[]
+  invoices        Invoice[]
+  userPlans       UserPlan[]
+  recharges       RechargeTransaction[]
+
+  @@index([userId])
+  @@index([accountNumber])
+}
+
+// 19. SIMCard
+model SIMCard {
+  id                 String         @id @default(uuid())
+  telecomAccountId   String
+  telecomAccount     TelecomAccount @relation(fields: [telecomAccountId], references: [id], onDelete: Cascade)
+  phoneNumber        String         @unique
+  iccid              String         @unique
+  isEsim             Boolean        @default(true)
+  balanceMinorUnits  Int            @default(0)
+  dataRemainingGB    Float          @default(0.0)
+  dataTotalGB        Float          @default(0.0)
+  expiryDate         DateTime
+  planName           String
+  is5GActive         Boolean        @default(true)
+  status             String         @default("ACTIVE")
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  usageRecords       DataUsageRecord[]
+  recharges          RechargeTransaction[]
+
+  @@index([phoneNumber])
+  @@index([telecomAccountId])
+}
+
+// 20. BroadbandConnection
+model BroadbandConnection {
+  id                       String            @id @default(uuid())
+  telecomAccountId         String
+  telecomAccount           TelecomAccount    @relation(fields: [telecomAccountId], references: [id], onDelete: Cascade)
+  serviceIdentifier        String            @unique
+  installationAddressId    String
+  installationAddress      Address           @relation(fields: [installationAddressId], references: [id])
+  planName                 String
+  downloadSpeedMbps        Int
+  uploadSpeedMbps          Int
+  isOnline                 Boolean           @default(true)
+  wifiSsid                 String            @default("NovaFiber_5G")
+  ipAddress                String            @default("192.168.1.1")
+  dataUsedGB               Float             @default(0.0)
+  dataTotalGB              Float             @default(0.0)
+  billingCycleRenewDate    DateTime
+  nextBillAmountMinorUnits Int               @default(7999)
+  connectionState          ConnectionState   @default(ONLINE)
+  createdAt                DateTime          @default(now())
+  updatedAt                DateTime          @updatedAt
+
+  modemDevice              ModemDevice?
+  speedUpgradeRequests     SpeedUpgradeRequest[]
+
+  @@index([serviceIdentifier])
+  @@index([telecomAccountId])
+}
+
+// 21. ModemDevice
+model ModemDevice {
+  id                    String              @id @default(uuid())
+  broadbandConnectionId String              @unique
+  broadbandConnection   BroadbandConnection @relation(fields: [broadbandConnectionId], references: [id], onDelete: Cascade)
+  productId             String
+  product               Product             @relation(fields: [productId], references: [id])
+  serialNumber          String              @unique
+  macAddress            String              @unique
+  firmwareVersion       String              @default("4.2.1-patch2")
+  modelName             String              @default("Nova WiFi 7 Mesh Gateway Pro")
+  lastHeartbeat         DateTime            @default(now())
+  rxPowerDbm            Float               @default(-20.5) // Optical fiber telemetry
+  txPowerDbm            Float               @default(2.1)
+  connectedDeviceCount  Int                 @default(8)
+  wifiChannelsJson      String?             // {"2.4G": 6, "5G": 36, "6G": 69}
+}
+
+// 22. DTHAccount
+model DTHAccount {
+  id                   String         @id @default(uuid())
+  telecomAccountId     String
+  telecomAccount       TelecomAccount @relation(fields: [telecomAccountId], references: [id], onDelete: Cascade)
+  subscriberNumber     String         @unique
+  smartCardNumber      String         @unique
+  packageName          String
+  activeTillDate       DateTime
+  monthlyFeeMinorUnits Int            @default(2499)
+  totalChannels        Int            @default(380)
+  isActive             Boolean        @default(true)
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+
+  @@index([subscriberNumber])
+}
+
+// 23. Subscription (OTT streaming)
+model Subscription {
+  id                   String         @id @default(uuid())
+  telecomAccountId     String
+  telecomAccount       TelecomAccount @relation(fields: [telecomAccountId], references: [id], onDelete: Cascade)
+  providerName         String
+  tierDescription      String
+  monthlyValueMinorUnits Int          @default(1999)
+  isActivated          Boolean        @default(true)
+  renewalDate          DateTime
+  partnerSubscriptionId String?
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+
+  @@index([telecomAccountId])
+}
+
+// 24. Plan
+model Plan {
+  id                      String        @id @default(uuid())
+  name                    String
+  type                    PlanType
+  headline                String
+  priceMinorUnits         Int
+  currency                String        @default("USD")
+  billingCycleDays        Int           @default(30)
+  downloadSpeedMbps       Int?
+  uploadSpeedMbps         Int?
+  dataQuotaGB             Float?
+  isUnlimitedData         Boolean       @default(false)
+  callingAllowance        String?
+  smsAllowance            String?
+  routerIncluded          Boolean       @default(false)
+  installationFeeMinorUnits Int?        @default(0)
+  bundledOTTAppsJson      String?       // JSON array
+  dthChannelCount         Int?
+  hdChannelCount          Int?
+  isPopular               Boolean       @default(false)
+  isBestValue             Boolean       @default(false)
+  createdAt               DateTime      @default(now())
+  updatedAt               DateTime      @updatedAt
+
+  features                PlanFeature[]
+  userPlans               UserPlan[]
+
+  @@index([type])
+  @@index([isPopular])
+}
+
+// 25. PlanFeature
+model PlanFeature {
+  id            String   @id @default(uuid())
+  planId        String
+  plan          Plan     @relation(fields: [planId], references: [id], onDelete: Cascade)
+  title         String
+  isHighlighted Boolean  @default(false)
+
+  @@index([planId])
+}
+
+// 26. UserPlan
+model UserPlan {
+  id               String         @id @default(uuid())
+  telecomAccountId String
+  telecomAccount   TelecomAccount @relation(fields: [telecomAccountId], references: [id], onDelete: Cascade)
+  planId           String
+  plan             Plan           @relation(fields: [planId], references: [id])
+  startDate        DateTime       @default(now())
+  endDate          DateTime
+  autoRenew        Boolean        @default(true)
+  status           String         @default("ACTIVE")
+
+  @@index([telecomAccountId])
+}
+
+// 27. RechargeTransaction
+model RechargeTransaction {
+  id               String         @id @default(uuid())
+  idempotencyKey   String         @unique
+  telecomAccountId String
+  telecomAccount   TelecomAccount @relation(fields: [telecomAccountId], references: [id], onDelete: Cascade)
+  simCardId        String?
+  simCard          SIMCard?       @relation(fields: [simCardId], references: [id])
+  amountMinorUnits Int
+  currency         String         @default("USD")
+  dataAddedGB      Float          @default(0.0)
+  validityDaysAdded Int           @default(30)
+  status           String         @default("SUCCESS")
+  createdAt        DateTime       @default(now())
+
+  @@index([idempotencyKey])
+  @@index([simCardId])
+}
+
+// 28. DataUsageRecord
+model DataUsageRecord {
+  id        String   @id @default(uuid())
+  simCardId String
+  simCard   SIMCard  @relation(fields: [simCardId], references: [id], onDelete: Cascade)
+  bytesUsed BigInt
+  sessionStart DateTime
+  sessionEnd   DateTime
+  serviceType  String  @default("5G_CELLULAR")
+
+  @@index([simCardId])
+}
+
+// 29. SpeedUpgradeRequest
+model SpeedUpgradeRequest {
+  id                     String              @id @default(uuid())
+  broadbandConnectionId  String
+  broadbandConnection    BroadbandConnection @relation(fields: [broadbandConnectionId], references: [id], onDelete: Cascade)
+  requestedDownloadMbps  Int
+  requestedUploadMbps    Int
+  targetPlanName         String
+  status                 String              @default("PROVISIONED")
+  effectiveImmediately  Boolean             @default(true)
+  createdAt              DateTime            @default(now())
+
+  @@index([broadbandConnectionId])
+}
+
+// 30. ServiceAvailability
+model ServiceAvailability {
+  id                        String   @id @default(uuid())
+  postalCode                String   @unique
+  areaName                  String
+  isFiberAvailable          Boolean  @default(true)
+  is5GHomeAvailable         Boolean  @default(true)
+  maxDownloadSpeedMbps      Int      @default(10000)
+  maxUploadSpeedMbps        Int      @default(10000)
+  technologyType            String   @default("XGS-PON 10Gbps Fiber")
+  estimatedInstallationDays Int      @default(2)
+
+  @@index([postalCode])
+}
+
+// 31. SupportTicket & Message
+model SupportTicket {
+  id                   String           @id @default(uuid())
+  ticketNumber         String           @unique
+  userId               String
+  user                 User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title                String
+  category             String
+  priority             TicketPriority   @default(MEDIUM)
+  status               TicketStatus     @default(OPEN)
+  scheduledAppointment DateTime?
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+
+  messages             SupportMessage[]
+
+  @@index([userId])
+  @@index([ticketNumber])
+}
+
+model SupportMessage {
+  id             String        @id @default(uuid())
+  ticketId       String
+  ticket         SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  senderName     String
+  isFromUser     Boolean
+  message        String
+  attachmentUrl  String?
+  createdAt      DateTime      @default(now())
+
+  @@index([ticketId])
+}
+
+// 32. Notification
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  category  String   @default("BILLING")
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+// 33. AuditLog
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action     String
+  resource   String
+  detailsJson String?
+  ipAddress  String?
+  timestamp  DateTime @default(now())
+
+  @@index([userId])
+  @@index([action])
+}
